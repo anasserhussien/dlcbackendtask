@@ -42,7 +42,7 @@ class UserLoginAPIView(APIView):
         if serializer.is_valid(raise_exception= True):
             new_data = serializer.data
             u = authenticate(username = data['username'],password = data['password'])
-            print (u)
+            #print (u)
             login(request,u)
             return Response(new_data, status=HTTP_200_OK)
         return Response(serializer.errors, status = HTTP_400_BAD_REQUEST)
